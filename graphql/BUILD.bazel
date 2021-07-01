@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "graphql",
+    srcs = [
+        "graphql.go",
+        "scalars.go",
+        "type_def.go",
+    ],
+    importpath = "github.com/martinxsliu/protoc-gen-graphql/graphql",
+    visibility = ["//visibility:public"],
+)

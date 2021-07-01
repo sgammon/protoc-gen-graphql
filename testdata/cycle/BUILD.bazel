@@ -1,0 +1,23 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+proto_library(
+    name = "protoc_gen_graphql_test_cycle_proto",
+    srcs = ["cycle.proto"],
+    visibility = ["//visibility:public"],
+)
+
+go_proto_library(
+    name = "protoc_gen_graphql_test_cycle_go_proto",
+    importpath = "github.com/martinxsliu/protoc-gen-graphql/testdata/cycle",
+    proto = ":protoc_gen_graphql_test_cycle_proto",
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "cycle",
+    embed = [":protoc_gen_graphql_test_cycle_go_proto"],
+    importpath = "github.com/martinxsliu/protoc-gen-graphql/testdata/cycle",
+    visibility = ["//visibility:public"],
+)

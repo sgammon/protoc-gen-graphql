@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "mapper",
+    srcs = [
+        "mapper.go",
+        "parameters.go",
+        "string_utils.go",
+    ],
+    importpath = "github.com/martinxsliu/protoc-gen-graphql/mapper",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//descriptor",
+        "//graphql",
+        "@org_golang_google_protobuf//types/descriptorpb:go_default_library",
+    ],
+)
+
+go_test(
+    name = "mapper_test",
+    srcs = ["string_utils_test.go"],
+    embed = [":mapper"],
+)
