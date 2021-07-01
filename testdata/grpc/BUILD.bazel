@@ -11,8 +11,8 @@ proto_library(
     visibility = ["//visibility:public"],
     deps = [
         "//graphql:graphql_proto",
-        "//grpc:grpc_proto",
     ],
+    strip_import_prefix = "/testdata",
 )
 
 go_proto_library(
@@ -23,7 +23,6 @@ go_proto_library(
     visibility = ["//visibility:public"],
     deps = [
         "//graphql:options_proto",
-        "//grpc:data_proto",
     ],
 )
 

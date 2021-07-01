@@ -10,3 +10,15 @@ go_library(
     importpath = "github.com/martinxsliu/protoc-gen-graphql/graphql",
     visibility = ["//visibility:public"],
 )
+
+alias(
+    name = "graphql_proto",
+    actual = "//protobuf/graphql:graphql_proto",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "options_proto",
+    actual = "//protobuf/graphql:graphql",
+    visibility = ["//visibility:public"],
+)
